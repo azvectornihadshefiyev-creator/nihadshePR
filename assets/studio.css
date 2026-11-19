@@ -1,0 +1,84 @@
+:root { --motion: cubic-bezier(.2,.75,.25,1); }
+.hero-image img { animation: hero-settle 1.15s var(--motion) both; }
+.hero-content { animation: content-in .55s var(--motion) both; }
+@keyframes hero-settle { from { transform:scale(1.035); opacity:.75; } to { transform:none; opacity:1; } }
+@keyframes content-in { from { transform:translateY(12px); opacity:0; } to { transform:none; opacity:1; } }
+@keyframes live-pulse { 50% { box-shadow:0 0 0 5px transparent; } }
+.live::before { content:""; width:6px; height:6px; border-radius:50%; background:var(--lime); margin-right:8px; box-shadow:0 0 0 2px #d2ff4c37; }
+.live:is(:focus-visible,:hover)::before { animation:live-pulse 1.35s ease infinite; }
+.button,.contact,.menu,.chips button { transition:border-color .2s, background .2s, transform .24s var(--motion); }
+.button:hover,.contact:hover { transform:translateY(-2px); }
+.button:active,.contact:active { transform:translateY(1px); }
+.gateway { display:grid; grid-template-columns:repeat(3,1fr); gap:12px; margin:14px 0 0; }
+.gateway a { display:grid; gap:7px; padding:17px 20px; background:var(--panel); border:1px solid var(--line); border-radius:9px; text-decoration:none; }
+.gateway a:hover,.gateway a:focus-visible { border-color:var(--lime); }
+.gateway span { color:var(--lime); letter-spacing:.13em; font-size:.78rem; }
+.gateway strong { font-size:1rem; }
+.discipline { border:1px solid var(--line); border-radius:11px; overflow:hidden; background:var(--panel); }
+.discipline a { display:block; height:100%; text-decoration:none; }
+.discipline-copy { padding:20px; }
+.discipline-copy h2 { font-size:clamp(1.35rem,3vw,2.1rem); margin:.35em 0; }
+.discipline-copy p:last-child { color:var(--muted); }
+.discipline-art { --tone:#d2ff4c; color:var(--tone); min-height:186px; display:grid; place-items:center; overflow:hidden;
+ background-image:linear-gradient(90deg,#ffffff12 1px,transparent 1px),linear-gradient(#ffffff12 1px,transparent 1px),radial-gradient(ellipse at center,#ffffff12,transparent 70%);
+ background-size:28px 28px,28px 28px,auto; }
+.discipline-art.lilac { --tone:#dbc4ff; }
+.discipline-art.coral { --tone:#ff9e83; }
+.discipline-art.feature { min-height:clamp(160px,30vw,330px); border-radius:12px; }
+.discipline-art span { display:block; font-size:clamp(4.3rem,12vw,9rem); line-height:1; transform:rotate(-14deg); transition:transform .5s var(--motion); }
+.discipline a:is(:hover,:focus-visible) .discipline-art span { transform:rotate(0) scale(1.15); }
+.discipline:nth-child(3n+2) .discipline-art { background-size:40px 40px,40px 40px,auto; }
+.discipline:nth-child(3n+3) .discipline-art { background-size:20px 20px,20px 20px,auto; }
+.discipline a:focus-visible { outline-offset:-3px; }
+.lesson-grid,.process-grid,.brief-grid { display:grid; grid-template-columns:1fr 1fr; gap:18px; }
+.lesson-row h2,.process-grid h2,.brief-preview h2 { font-size:clamp(1.4rem,3vw,2.15rem); }
+.lesson-row a:hover,.folder a:hover { color:var(--lime); }
+.process-grid section,.brief-preview,.brief-form { background:var(--panel); border:1px solid var(--line); border-radius:10px; padding:clamp(17px,3vw,30px); }
+.process-grid span { color:var(--lime); font-variant-numeric:tabular-nums; }
+.process-grid p { color:var(--muted); margin-top:10px; }
+.lesson-checklist ol { padding-left:1.3em; }
+.lesson-checklist li { margin-bottom:.65em; }
+.lesson-checklist label { display:flex; gap:10px; align-items:start; }
+.lesson-checklist input { width:20px; min-height:20px; accent-color:var(--lime); flex:none; margin:2px 0; }
+.lesson-checklist input:checked + span { color:var(--lime); }
+.brief-form { display:grid; gap:13px; }
+.brief-form label { display:grid; gap:6px; }
+.brief-form input,.brief-form select,.brief-form textarea,.brief-preview textarea { width:100%; max-width:none; border:1px solid #52584a; border-radius:7px; padding:10px; color:var(--text); background:var(--bg); font:inherit; }
+.brief-form select { min-height:46px; }
+.brief-preview textarea { margin:12px 0; }
+.brief-preview p { color:var(--muted); }
+.folder { margin:9px 0; background:var(--panel); border:1px solid var(--line); border-radius:8px; }
+.folder[open] { border-color:#68774b; }
+.folder summary { padding:14px; cursor:pointer; }
+.folder summary::marker { color:var(--lime); }
+.folder summary span,.folder li span { color:var(--muted); margin-left:12px; font-size:.9rem; }
+.folder p,.folder ul { margin:0; padding:0 18px 14px; }
+.folder li { list-style:none; padding:6px 0; }
+.sound-setting { border:1px solid var(--line); border-radius:7px; background:var(--panel); color:var(--muted); padding:8px 14px; }
+.sound-setting[aria-pressed=true] { color:var(--lime); border-color:var(--lime); }
+.sr-only { position:absolute; width:1px; height:1px; overflow:hidden; clip-path:inset(50%); white-space:nowrap; }
+@media (max-width:1020px) {
+ .top { position:relative; flex-wrap:wrap; padding-block:12px; }
+ .menu:not([hidden]) { display:inline-flex; margin-left:auto; }
+ .top nav { width:100%; order:4; }
+ .menu:not([hidden]) + nav:not(.open) { display:none; }
+ .top nav a { padding:6px 0; }
+}
+@media (max-width:620px) { .gateway,.lesson-grid,.process-grid,.brief-grid { grid-template-columns:1fr; } }
+@media (prefers-reduced-motion:reduce) {
+ .hero-image img,.hero-content,.live:is(:focus-visible,:hover)::before { animation:none; }
+ .button:hover,.contact:hover,.discipline a:is(:hover,:focus-visible) .discipline-art span { transform:none; }
+}
+.feature-art .discipline-art { min-height:clamp(160px,30vw,330px); border-radius:12px; }
+.discipline-art img { aspect-ratio:2/1; height:100%; object-fit:cover; }
+.feature-art .discipline-art img { max-height:620px; object-fit:contain; }
+@media (prefers-reduced-motion:no-preference) {
+ @view-transition { navigation:auto; }
+ ::view-transition-old(root) { animation-duration:.16s; }
+ ::view-transition-new(root) { animation-duration:.24s; }
+ .page-heading { animation:content-in .38s var(--motion) both; }
+ .folder[open] > :not(summary) { animation:content-in .22s var(--motion) both; }
+ .lesson-row { transition:border-color .22s var(--motion); }
+ .lesson-row:focus-within,.lesson-row:hover,.folder summary:hover { border-color:var(--lime); }
+ .motion-visible { animation:content-in .42s var(--motion) both; }
+}
