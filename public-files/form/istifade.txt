@@ -1,0 +1,3 @@
+FORM · nümunə konsept
+Bu qovluqda konseptin nümayiş vizualı yerləşir. Loqo müəllifinin paylaşmaq
+istədiyi SVG, PDF və PNG faylları sonradan ayrıca əlavə edilə bilər.
