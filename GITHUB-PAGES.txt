@@ -1,0 +1,20 @@
+Nihad Shefiyev · Dizayn Studiyası V5
+
+GitHub Pages-ə yükləmək
+1. ZIP-i çıxart. Bu qovluğun içindəki fayl və alt qovluqları seç.
+2. Öz GitHub repozitoriyanda Add file > Upload files seç.
+3. Faylları və alt qovluqları yüklə, sonra Commit changes düyməsinə bas.
+   Repozitoriyanın üst səviyyəsində index.html görünməlidir.
+4. Settings > Pages > Build and deployment > Source sahəsində
+   Deploy from a branch seç. Branch kimi main, qovluq kimi / (root) seç.
+   Repozitoriyanın standart branch adı fərqlidirsə həmin branch-i seç.
+5. Save düyməsinə bas. Yayımdan sonra ünvan Settings > Pages-də görünür.
+
+Ünvan adətən https://ISTIFADECI.github.io/REPOZITORIYA/ şəklində olur.
+GitHub planında bu repozitoriya üçün Pages əlçatan olmalıdır.
+Python, Node.js və ya GitHub Actions qurmağa ehtiyac yoxdur.
+
+Dizayn, axtarış və portfeli yerli sınamaq üçün index.html aç.
+Məzmunu yenidən qurmaq üçün ayrıca V5 mənbə paketindən istifadə et.
+WhatsApp yalnız real nömrə mənbə konfiqurasiyasına əlavə olunub
+sayt yenidən qurulduqda aktiv olur.
